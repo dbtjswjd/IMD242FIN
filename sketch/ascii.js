@@ -6,28 +6,6 @@ const aspectH = 3;
 const container = document.body.querySelector('.container-canvas');
 // 필요에 따라 이하에 변수 생성.
 
-// let letter = 'P';
-// let angle = '0';다시 시작 나중에 지우기
-
-let faceMesh;
-let video;
-
-let alpha = 255;
-let isFading = false; //여기까지는 문제없
-
-let faces = [];
-let options = { maxFaces: 2, refineLandmarks: false, flipped: true };
-let mosaicSize = 15; // 모자이크 사이즈 크기
-
-function preload() {
-  // Load the faceMesh model
-  faceMesh = ml5.faceMesh(options);
-}
-
-function gotFaces(results) {
-  faces = results;
-}
-
 function setup() {
   // 컨테이너의 현재 위치, 크기 등의 정보 가져와서 객체구조분해할당을 통해 너비, 높이 정보를 변수로 추출.
   const { width: containerW, height: containerH } =
@@ -53,49 +31,14 @@ function setup() {
   }
   init();
   // createCanvas를 제외한 나머지 구문을 여기 혹은 init()에 작성.
-
-  video = createCapture(VIDEO, { flipped: true });
-  video.size(width, height);
-  // faceMesh.detectStart(video);//얼굴 감지시작을 알림
-  video.hide();
-
-  // noLoop();
 }
 
 // windowResized()에서 setup()에 준하는 구문을 실행해야할 경우를 대비해 init이라는 명칭의 함수를 만들어 둠.
 function init() {}
 
 function draw() {
-  // if (isFading) {
-  //   fadeAndShakeMosaic();
-  // } else {
-  //   drawMosaic();
-  // }
-
-  background(220); //백그라운드 생성안하면 비디오 안나옴.. 바보..
-  image(video, 0, 0, width, height);
-
-  video.loadPixels();
-
-  for (let y = 0; y < video.height; y += mosaicSize) {
-    for (let x = 0; x < video.width; x += mosaicSize) {
-      let index = (x + y * video.width) * 4;
-      let r = video.pixels[index];
-      let g = video.pixels[index + 1];
-      let b = video.pixels[index + 2];
-
-      // fill(r, g, b);
-      let brightness = (r + g + b) / 1.5;
-      fill(brightness);
-      noStroke();
-      rect(
-        x * (width / video.width),
-        y * (height / video.height),
-        mosaicSize * (width / video.width),
-        mosaicSize * (height / video.height)
-      );
-    }
-  }
+  background('white');
+  circle(mouseX, mouseY, 50);
 }
 
 function windowResized() {
