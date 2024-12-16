@@ -109,7 +109,7 @@ function initializeTiles() {
         tiles.push(new Tile(tileX, tileY, brightness));
       }
     }
-  }, 2000);
+  }, 500);
 }
 
 function draw() {
