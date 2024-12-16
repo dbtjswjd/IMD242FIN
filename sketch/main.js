@@ -1,5 +1,3 @@
-// 종횡비를 고정하고 싶을 경우: 아래 두 변수를 0이 아닌 원하는 종, 횡 비율값으로 설정.
-// 종횡비를 고정하고 싶지 않을 경우: 아래 두 변수 중 어느 하나라도 0으로 설정.
 const aspectW = 4;
 const aspectH = 3;
 // html에서 클래스명이 container-canvas인 첫 엘리먼트: 컨테이너 가져오기.
@@ -78,7 +76,7 @@ function setup() {
 
   video = createCapture(VIDEO, { flipped: true });
   video.size(containerW, (containerW * aspectH) / aspectW).parent(container);
-  // faceMesh.detectStart(video);//얼굴 감지시작을 알림
+
   video.hide();
 
   videoWidth = video.width;
