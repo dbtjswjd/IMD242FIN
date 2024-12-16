@@ -17,7 +17,7 @@ let isWaiting = false;
 
 let faces = [];
 let options = { maxFaces: 2, refineLandmarks: false, flipped: true };
-let mosaicSize = 15; // 모자이크 사이즈 크기
+let mosaicSize = 12; // 모자이크 사이즈 크기
 
 class Tile {
   constructor(x, y, brightness) {
