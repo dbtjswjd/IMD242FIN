@@ -238,7 +238,7 @@ function mousePressed() {
     let distance = force.mag();
     force.normalize();
 
-    let magnitude = random(8, 30);
+    let magnitude = random(2, 30);
     force.mult(magnitude);
 
     tile.applyForce(force);
