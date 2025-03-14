@@ -301,7 +301,7 @@ function draw() {
   vol = vol * 10; // 소리 민감도를 높이기 위해 100배로 조정
 
   // 소리 강도가 일정 수준 이상일 경우 색상 변경
-  if (vol > 0.07) {
+  if (vol > 0.05) {
     // 소리 강도 임계값 설정 (필요에 따라 조정)
     randomColor = color(random(255), random(255), random(255)); // 랜덤 색상 생성
   }
